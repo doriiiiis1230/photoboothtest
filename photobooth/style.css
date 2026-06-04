@@ -1,0 +1,179 @@
+/* style.css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', 'Impact', sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* iPhone 17 橫式容器 (19.5:9 比例) */
+.phone-container {
+    width: 932px;
+    height: 430px;
+    background: linear-gradient(45deg, #ff007f, #ff66cc, #8a2be2);
+    border: 8px solid #000;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(255, 0, 127, 0.6);
+}
+
+/* 辣妹字體風格 */
+.gal-title {
+    font-size: 2.5rem;
+    color: #ffff00;
+    text-shadow: 3px 3px 0px #ff007f, -3px -3px 0px #000;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    animation: flash 1s infinite alternate;
+}
+
+/* 霓虹閃爍按鈕 */
+.gal-btn {
+    background: #ffff00;
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 30px;
+    border: 4px solid #000;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #ff007f;
+    transition: transform 0.1s, box-shadow 0.1s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.gal-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px #ff007f;
+}
+
+/* 閃爍動畫 */
+@keyframes flash {
+    0% { filter: drop-shadow(0 0 5px #fff); }
+    100% { filter: drop-shadow(0 0 15px #ff007f); }
+}
+
+/* 主內容區域 */
+.content-area {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* 外框選擇排版 */
+.frame-option {
+    width: 150px;
+    height: 100px;
+    border: 4px dashed #fff;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+/* 外框選擇 Hover 特效：加上霓虹發光效果 */
+.frame-option:hover {
+    border-color: #ffff00;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #ffff00, 0 0 25px #ff007f;
+}
+
+.frame-option img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 相機與相片工作區 */
+.photo-workspace {
+    position: relative;
+    width: 400px;
+    height: 250px;
+    background: #000;
+    border: 4px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#video, #captured-img, #result-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 疊加的外框 */
+.frame-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    object-fit: cover;
+}
+
+/* 貼圖工具箱選單 */
+.sticker-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.sticker-item {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.sticker-item:hover {
+    border-color: #ffff00;
+}
+
+/* 可拖拽貼圖 */
+.draggable-sticker {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    cursor: move;
+    touch-action: none;
+    user-select: none;
+}
